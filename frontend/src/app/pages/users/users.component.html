@@ -1,0 +1,19 @@
+<div class="p-4">
+    <p-table [value]="userData" styleClass="p-datatable-striped" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td><button class="btn btn-outline-info" (click)="viewStats(user)">view stats</button><button class="btn btn-outline-danger ms-2" (click)="onDelete(user)">Delete</button></td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,20 @@
+<div *ngIf="available">
+    <h2 class="text-center my-3">Quiz</h2>
+    <div class="d-flex flex-column">
+        <div *ngFor="let question of QuizData.questions; let i = index" class="bg-light p-3 m-2 rounded-4">
+            <div>
+                <p>{{ question.text }}</p>
+                <div *ngFor="let option of question.options">
+                    <label>
+                        <input type="radio" [name]="'question' + i" [value]="option" (change)="selectOption(i, option)">
+                        {{ option }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="my-2 text-center">Please select all options to submit</div>
+        <div class="d-flex justify-content-center mt-3">
+            <button (click)="submitQuiz()" [disabled]="!allAnswered" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</div>

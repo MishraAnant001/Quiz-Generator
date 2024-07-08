@@ -1,0 +1,61 @@
+<div class="container-fluid mb-4 d-flex justify-content-center mt-5">
+  <img class="img-fluid" src="../../../assets/images/logo.png" width="100" height="100" alt="" />
+</div>
+<div *ngIf="!isAdmin">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" [routerLink]="['/']">
+          DashBoard
+        </button>
+      </h2>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo" routerLinkActive="active">
+          Quiz
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="d-flex flex-column">
+            <a class="btn d-block" routerLinkActive="active" routerLink="/quiz/play">Play Quiz</a>
+            <a class="btn d-block" routerLinkActive="active" routerLink="/quiz/history">See History</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button">settings</button>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isAdmin">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" [routerLink]="['/']">
+          DashBoard
+        </button>
+      </h2>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" [routerLink]="['/users']">
+          Manage users
+        </button>
+      </h2>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" routerLink="/questions">
+          Manage Questions
+        </button>
+      </h2>
+    </div>
+  </div>
+</div>

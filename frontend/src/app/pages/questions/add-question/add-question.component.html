@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center m-3 ">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="bg-light p-4 w-50 rounded-4">
+        <h4 class="text-center mb-2">Question Form</h4>
+        <div class="mb-3">
+            <label for="text" class="form-label">Question</label>
+            <input type="text"  id="text" class="form-control" formControlName="text" [ngClass]="{'is-invalid': submitted && f['text'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['text'].errors">
+                <div *ngIf="f['text'].errors['required']">Question is required!</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="option1" class="form-label">Option 1</label>
+            <input type="text"  id="option1" class="form-control" formControlName="option1" [ngClass]="{'is-invalid': submitted && f['option1'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['option1'].errors">
+                <div *ngIf="f['option1'].errors['required']">Option 1 is required!</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="option2" class="form-label">Option 2</label>
+            <input type="text"  id="option2" class="form-control" formControlName="option2" [ngClass]="{'is-invalid': submitted && f['option2'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['option2'].errors">
+                <div *ngIf="f['option2'].errors['required']">Option 2 is required!</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="option3" class="form-label">Option 3</label>
+            <input type="text"  id="option3" class="form-control" formControlName="option3" [ngClass]="{'is-invalid': submitted && f['option3'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['option3'].errors">
+                <div *ngIf="f['option3'].errors['required']">Option 3 is required!</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="option4" class="form-label">Option 4</label>
+            <input type="text"  id="option4" class="form-control" formControlName="option4" [ngClass]="{'is-invalid': submitted && f['option4'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['option4'].errors">
+                <div *ngIf="f['option4'].errors['required']">Option 4 is required!</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="answer" class="form-label">answer</label>
+            <input type="text"  id="answer" class="form-control" formControlName="answer" [ngClass]="{'is-invalid': submitted && f['answer'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['answer'].errors">
+                <div *ngIf="f['answer'].errors['required']">answer is required!</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="difficulty" class="form-label">difficulty</label>
+            <input type="number" id="difficulty" class="form-control" formControlName="difficulty" [ngClass]="{'is-invalid': submitted && f['difficulty'].errors}">
+            <div class="invalid-feedback" *ngIf=" submitted && f['difficulty'].errors">
+                <div *ngIf="f['difficulty'].errors['required']">difficulty is required!</div>
+                <div *ngIf="f['difficulty'].errors['min']">minimum 1 is allowed</div>
+                <div *ngIf="f['difficulty'].errors['max']">maximum 10 is allowed!</div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center flex-wrap">
+            <button class="btn btn-success" type="submit" *ngIf="!edited" >Submit</button>
+            <button class="btn btn-success" type="submit" *ngIf="edited" >Update</button>
+            <button class="btn btn-primary ms-2" type="button" (click)="resetForm()">Reset</button>
+            <a routerLink="/questions" class="btn btn-warning ms-2" type="button">Go back</a>
+        </div>
+    </form>
+</div>

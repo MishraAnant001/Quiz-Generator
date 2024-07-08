@@ -1,0 +1,5 @@
+{
+    "PORT":8000,
+    "MONGO_URI":"mongodb+srv://anantmanojmishra:kNp8tfu3NJ4SfBXp@backenddb.kuqejt8.mongodb.net/quizgenerator?retryWrites=true&w=majority&appName=BackendDB",
+    "SECRET_KEY" : "anantmishra"
+}

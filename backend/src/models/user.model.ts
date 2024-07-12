@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     },
     profilephoto:{
         type:String,
-        default:"blank-profile-picture-973460_960_720"
+        default:"blank-profile-picture-973460_960_720.webp"
     },
     difficulty:{
         type:Array<number>,

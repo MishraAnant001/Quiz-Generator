@@ -23,4 +23,10 @@ export class UserService {
   deleteUser(id:string){
     return this.http.delete(this.getApi+id)
   }
+  getUserById(id:string){
+    return this.http.get(this.getApi+id)
+  }
+  updateUser(id:string,data:FormData){
+    return this.http.put(this.getApi+id,data)
+  }
 }

@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
       // console.log(remember);
       this.service.loginUser(this.form.value).subscribe({
         next:(response:any)=>{
-          // console.log(response);
+          console.log(response);
           Swal.fire({
             icon: "success",
             title: "login successfull",
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit{
             timer: 1500
           }).then(()=>{
             this.storageService.clear()
+            localStorage.setItem("profile",response.body.data.user.profilephoto)
+            localStorage.setItem("_id",response.body.data.user._id)
             this.storageService.setToken(response.body.data.token,remember)
             this.storageService.setRole(response.body.data.user.role)
             this.storageService.setName(response.body.data.user.name)

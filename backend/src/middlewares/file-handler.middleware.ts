@@ -8,8 +8,8 @@ const storage = multer.diskStorage({
         cb(null, '../backend/src/public')
     },
     filename: function (req:IRequest, file, cb) {
-        console.log(file);
-        const fileName= req.userid!+"-"+Date.now()+ "-"+file.originalname
+        // console.log(file);
+        const fileName= +Date.now()+ "-"+file.originalname
         cb(null, fileName)
     }
 })

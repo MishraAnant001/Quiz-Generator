@@ -33,7 +33,7 @@ export class DashboardService{
     async getAdminDashBoard(){
         const quiz = await Quiz.find({})
         const questions = await Question.find({})
-        const users = await User.find({})
+        const users = await User.find({role:'user'})
         const data ={
             quiz:quiz.length,
             questions:questions.length,

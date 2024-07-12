@@ -1,0 +1,18 @@
+
+<div class="d-flex justify-content-center" *ngIf="username">
+    <div class="w-25" >
+        <h3 class="text-center my-3">Profile Details</h3>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="" #name id="name" class="form-control" [value]="username"/>
+        </div>
+        <div class="mb-3 text-center" style="position: relative;" >
+            <img [src]="url" alt="" width="200" height="200" style="border-radius: 100px;">
+            <button id="editbtn" class="btn" (click)="input.click()"><i class="bi bi-pencil"></i></button>
+            <input type="file" class="d-none" #input (change)="onSelectfile($event)">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-info" (click)="onUpdate(name.value)">Update Profile</button>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataExchangeService, QuestionService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   templateUrl: './add-question.component.html',
   styleUrls: ['./add-question.component.scss']
 })
-export class AddQuestionComponent implements OnInit {
+export class AddQuestionComponent implements OnInit,OnDestroy {
   constructor(private service: QuestionService, private fb: FormBuilder, private exchangeService: DataExchangeService) { }
   form!: FormGroup
   question: any
@@ -104,6 +104,10 @@ export class AddQuestionComponent implements OnInit {
   resetForm() {
     this.submitted = false
     this.form.reset()
+  }
+
+  ngOnDestroy(): void {
+      this.exchangeService.reset()
   }
 
 

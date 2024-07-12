@@ -40,4 +40,24 @@ export class UserController{
             next(error)
         }
     }
+    async getUserById(req:Request,res:Response,next:NextFunction){
+        try {
+            const {id} =req.params
+            const response = await service.getUserById(id);
+            res.status(response.statusCode).json(response)
+        } catch (error) {
+            next(error)
+        }
+    }
+    async updateUser(req:Request,res:Response,next:NextFunction){
+        try {
+            const {id} =req.params
+            const {name} =req.body
+            console.log(req.file);
+            const response = await service.updateuser(id,name as string,req.file);
+            res.status(response.statusCode).json(response)
+        } catch (error) {
+            next(error)
+        }
+    }
 }

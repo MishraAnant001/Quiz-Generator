@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StorageService } from 'src/app/core/services';
+import { SharedService, StorageService } from 'src/app/core/services';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,9 +8,20 @@ import Swal from 'sweetalert2';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent{
+export class NavbarComponent implements OnInit{
 
-  constructor(private router: Router,private service:StorageService) { }
+  constructor(private router: Router,private service:StorageService,private sharedService:SharedService) { }
+  ngOnInit(): void {
+    this.sharedService.getChange().asObservable().subscribe({
+      next:(response)=>{
+        this.url = `http://localhost:8000/${localStorage.getItem("profile")}`
+        this.user = this.service.getName()
+        console.log(this.url,this.user);
+      }
+    })
+  }
+
+  url = `http://localhost:8000/${localStorage.getItem("profile")}`
   user = this.service.getName()
   logout() {
     Swal.fire({
